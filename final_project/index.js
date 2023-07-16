@@ -23,7 +23,6 @@ app.use("/customer/auth/*", function auth(req, res, next) {
     jwt.sign(jwtAccessToken, "secretCode", (err, user) => {
       if (!err) {
         req.user = user;
-        console.log(user);
         next();
       } else {
         return res.status(403).json({ message: "user not authenticated" });

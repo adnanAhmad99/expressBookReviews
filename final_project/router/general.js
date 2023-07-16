@@ -8,12 +8,9 @@ public_users.post("/register", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
 
-  console.log(username, password);
-
   if (username && password) {
     if (!isValid(username)) {
       users.push({ username, password });
-      console.log(users);
       return res
         .status(200)
         .json({ message: `new user ${username} registered` });
