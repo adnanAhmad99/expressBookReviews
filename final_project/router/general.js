@@ -100,4 +100,59 @@ public_users.get("/review/:isbn", function (req, res) {
   });
 });
 
+// following code relate to task 10 , 11 , 12 and 13
+const axios = require("axios");
+
+// getting all books data using async await with axios
+const allBooksDataFunction = async (url) => {
+  try {
+    const bookRequest = await axios.get(url);
+    const booksData = bookRequest.data;
+
+    console.log("all books Data", booksData);
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+// allBooksDataFunction("http://127.0.0.1:5030/");
+
+// getting all book data by isbn using async await with axios
+const isbnBasedSearchFunction = async (url) => {
+  try {
+    const bookRequest = await axios.get(url);
+    const bookData = bookRequest.data;
+
+    console.log("isbn based book Data", bookData);
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+// isbnBasedSearchFunction("http://127.0.0.1:5030/isbn/1");
+
+// getting all book data by author using async await with axios
+const authorBasedSearchFunction = async (url) => {
+  try {
+    const bookRequest = await axios.get(url);
+    const bookData = bookRequest.data;
+
+    console.log("author based book Data", bookData);
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+// authorBasedSearchFunction("http://127.0.0.1:5030/author/Jane Austen");
+
+// getting all book data by title using async await with axios
+const titleBasedSearchFunction = async (url) => {
+  try {
+    const bookRequest = await axios.get(url);
+    const bookData = bookRequest.data;
+
+    console.log("title based book Data", bookData);
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+// titleBasedSearchFunction("http://127.0.0.1:5030/title/Fairy tales");
+
 module.exports.general = public_users;
